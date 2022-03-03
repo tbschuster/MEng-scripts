@@ -1,15 +1,17 @@
 #!/bin/bash
+#To use, example: ./convert_data.sh AP-neg
 
-suffix=AP-pos
+set -e
+mkdir -p $1
 
 for f in Original/*; do
 
-in=$f/*-$suffix
+in=$f/*-$1
 out=$(basename $f).mif
 
-mrconvert $in.nii -fslgrad $in.bvec $in.bval $out -force
+mrconvert $in.nii -fslgrad $in.bvec $in.bval $1/$out -force
 
 done
 
-mrcat b*-reg-split.mif -axis 3 dwi_shells-$suffix.mif -force
-rm b*-reg-split.mif
+mrcat $1/b*-reg-split.mif -axis 3 $1/dwi_shells.mif -force
+rm $1/b*-reg-split.mif
