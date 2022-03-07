@@ -28,3 +28,4 @@ done
 
 mrcat $1/b*-reg-split.mif -axis 3 $1/dwi_shells.mif -force
 rm $1/b*-reg-split.mif
+rm Original/b*-reg-split/bvec_corrected.bvec
