@@ -14,7 +14,7 @@ for folder in AP-neg; do
 cd $folder
 #../get_response.sh
 #../dwi2fod.sh
-#../simulate.sh ../grad.txt dwi_sim.mif
+../simulate.sh ../grad.txt dwi_sim.mif
 
 ../sample_selection.sh dwi_sim.mif 100 dwi_sim_subsample.mif
 ../add_noise.sh dwi_sim_subsample.mif 50 dwi_sim_subsample_noise.mif
